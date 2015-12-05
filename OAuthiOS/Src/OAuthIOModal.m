@@ -20,6 +20,7 @@
 @implementation OAuthIOModal
 NSString *_host;
 NSString *_url;
+NSDictionary *ddict;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -231,6 +232,7 @@ NSString *_url;
     {
         NSError *error = nil;
         NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+        ddict = jsonDict;
         
         if (error)
         {
