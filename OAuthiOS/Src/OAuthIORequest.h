@@ -19,7 +19,7 @@
 #include "OAuthIOData.h"
 #include "OAuthIO.h"
 
-#define kOAUTHIO_URL @"https://oauth.io"
+//#define kOAUTHIO_URL @"https://oauth.io"
 
 #define kOAUTHIO_GET_METHOD     @"GET"
 #define kOAUTHIO_POST_METHOD    @"POST"

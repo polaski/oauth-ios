@@ -19,6 +19,7 @@
 
 @implementation OAuthIO
 
+NSString *kOAUTHIO_URL;
 NSString *_key;
 
 + (NSString *)getPublicKey
@@ -36,6 +37,22 @@ NSString *_key;
     _key = key;
     
     return (self);
+}
+- (id)initWithKey:(NSString *)key andUrl:(NSString *)url
+{
+    self  = [super init];
+    
+    if (!self)
+        return nil;
+    
+    _key = key;
+    kOAUTHIO_URL = url;
+    
+    return (self);
+}
+
++ (NSString *)OAuthIO_URL{
+  return kOAUTHIO_URL;
 }
 
 - (NSURLRequest *)getOAuthRequest:(NSString *)provider

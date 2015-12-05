@@ -59,6 +59,7 @@
             [resxUrl insertString:@"/" atIndex:0];
         
         NSString *oauthio_header = [NSString stringWithFormat:@"k=%@&oauthv=1&oauth_token=%@&oauth_token_secret=%@", [OAuthIO getPublicKey], _data.oauth_token, _data.oauth_token_secret];
+        NSString *kOAUTHIO_URL = [OAuthIO OAuthIO_URL];
         
         NSMutableString *url = [NSMutableString stringWithFormat:@"%@/request/%@%@", kOAUTHIO_URL, _data.provider, resxUrl];
         
@@ -183,6 +184,7 @@
     if (oauthio_header == nil)
         return;
     
+    NSString *kOAUTHIO_URL = [OAuthIO OAuthIO_URL];
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@/auth/%@/me", kOAUTHIO_URL, _data.provider];
     if (_data.request_query)
     {
