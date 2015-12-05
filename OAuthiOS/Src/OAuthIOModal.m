@@ -19,6 +19,7 @@
 
 @implementation OAuthIOModal
 NSString *_host;
+NSString *_url;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,7 +79,7 @@ NSString *_host;
     
     _key = key;
     if (options != nil && [options objectForKey:@"url"] != nil) {
-      NSString *url = [options objectForKey:@"url"];
+      _url = [options objectForKey:@"url"];
       _oauth = [[OAuthIO alloc] initWithKey:_key andUrl: url];
     } else {
       _oauth = [[OAuthIO alloc] initWithKey:_key];
