@@ -19,7 +19,7 @@
 
 @implementation OAuthIO
 
-NSString *kOAUTHIO_URL;
+NSString *URL;
 NSString *_key;
 
 + (NSString *)getPublicKey
@@ -46,13 +46,13 @@ NSString *_key;
         return nil;
     
     _key = key;
-    kOAUTHIO_URL = url;
+    URL = url;
     
     return (self);
 }
 
 + (NSString *)OAuthIO_URL{
-  return kOAUTHIO_URL;
+  return URL;
 }
 
 - (NSURLRequest *)getOAuthRequest:(NSString *)provider
@@ -62,8 +62,9 @@ NSString *_key;
     NSString *optionString = options? [NSString stringWithFormat:@"&opts=%@",[OAuthIO dictionaryToJSON:options]]
             : @"";
     
-    NSString *queryString = [[NSString alloc] initWithFormat:@"%@/%@?k=%@%@&redirect_uri=%@&mobile=true", [NSString stringWithFormat:@"%@/auth", kOAUTHIO_URL], provider, _key, optionString, url];
+    NSString *queryString = [[NSString alloc] initWithFormat:@"%@/%@?k=%@%@&redirect_uri=%@&mobile=true", [NSString stringWithFormat:@"%@/auth", URL], provider, _key, optionString, url];
     
+    NSLog(@"queryString = %@", queryString);
     _req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:queryString]];
     [_req setValue:@"(iPhone; iPad) AppleWebKit" forHTTPHeaderField:@"User-Agent"];
     return _req;
