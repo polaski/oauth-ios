@@ -19,7 +19,7 @@
 
 @implementation OAuthIO
 
-NSString *URL;
+static NSString *URL;
 NSString *_key;
 
 + (NSString *)getPublicKey
