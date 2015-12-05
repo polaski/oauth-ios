@@ -27,6 +27,7 @@
         return (nil);
     
     _request = [[NSMutableDictionary alloc] init];
+    NSLog(@"dict = %@", dict);
     
     if ([[dict objectForKey:@"data"] objectForKey:@"access_token"] != nil)
     {
