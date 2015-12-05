@@ -77,7 +77,12 @@ NSString *_host;
     }
     
     _key = key;
-    _oauth = [[OAuthIO alloc] initWithKey:_key];
+    if (options != nil && [options objectForKey:@"url"] != nil) {
+      NSString *url = [options objectForKey:@"url"];
+      _oauth = [[OAuthIO alloc] initWithKey:_key andUrl: url];
+    } else {
+      _oauth = [[OAuthIO alloc] initWithKey:_key];
+    }
     _rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
