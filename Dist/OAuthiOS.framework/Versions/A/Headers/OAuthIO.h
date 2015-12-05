@@ -32,6 +32,8 @@
 + (NSString *)getPublicKey;
 
 - (id)initWithKey:(NSString *)key;
+- (id)initWithKey:(NSString *)key andUrl:(NSString*)url;
++ (NSString *)OAuthIO_URL;
 - (NSURLRequest *)getOAuthRequest:(NSString *)provider
                       andUrl:(NSString *)url
                        andOptions:(NSDictionary*)options;
