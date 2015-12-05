@@ -77,6 +77,7 @@ NSString *_url;
         }
     }
     
+    _url = @"default";
     _key = key;
     if (options != nil && [options objectForKey:@"url"] != nil) {
       _url = [options objectForKey:@"url"];
